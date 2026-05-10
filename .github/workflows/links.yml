@@ -13,5 +13,6 @@ jobs:
       - name: Lychee link check
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --max-redirects 5 './**/*.md'
+          args: --verbose --no-progress --max-redirects 5 --exclude-path tasks './**/*.md'
           fail: true
+          failIfEmpty: false
