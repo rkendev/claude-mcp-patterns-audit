@@ -30,7 +30,7 @@ Pick an MCP from the table below and read its dedicated annotation file. Each an
 | notion-mcp-server | TypeScript | stdio + Streamable HTTP | No | Partial | No | 3 | [link](mcps/notion-mcp-server.md) |
 | supabase-mcp | TypeScript | stdio | No | Implicit (Zod via SDK) | Yes | 0 | [link](mcps/supabase-mcp.md) |
 | postgres-mcp (CrystalDBA) | Python | stdio | No | Implicit (Pydantic) | No | 1 | [link](mcps/postgres-mcp.md) |
-| x-twitter-mcp-server | Python | stdio | No | Implicit (FastMCP) | Partial | 5+ | [link](mcps/x-twitter-mcp-server.md) |
+| x-twitter-mcp-server | Python | stdio | No | Implicit (FastMCP) | Partial | 9 | [link](mcps/x-twitter-mcp-server.md) |
 | mcp-claude-hackernews | TypeScript | stdio | No | No | No | 4 | [link](mcps/mcp-claude-hackernews.md) |
 
 The "Anti-patterns observed" column counts the bullet points in the `## Anti-patterns observed` section of each annotation. A 0 means none were observed in the audit at the pinned commit; it does not mean the server is flawless.
