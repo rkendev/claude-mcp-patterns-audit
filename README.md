@@ -3,9 +3,9 @@
 [![links](https://github.com/rkendev/claude-mcp-patterns-audit/actions/workflows/links.yml/badge.svg)](https://github.com/rkendev/claude-mcp-patterns-audit/actions/workflows/links.yml)
 [![markdownlint](https://github.com/rkendev/claude-mcp-patterns-audit/actions/workflows/markdownlint.yml/badge.svg)](https://github.com/rkendev/claude-mcp-patterns-audit/actions/workflows/markdownlint.yml)
 
-Curated audit of 13 production MCP servers — what canonical CCA-F D2 patterns ship in the wild, and what anti-patterns hide in plain sight.
+Curated audit of 13 production MCP servers — what canonical error/schema/transport patterns ship in the wild, and what anti-patterns hide in plain sight.
 
-Built as Artifact D of a Claude Certified Architect Foundations small-projects portfolio. Companion to:
+Built as Artifact D of a small-projects portfolio exploring Claude's tool-use and MCP fundamentals. Companion to:
 
 - [claude-mcp-server-minimal](https://github.com/rkendev/claude-mcp-server-minimal) (Artifact A — minimal MCP server)
 - [claude-tools-roundtrip-playground](https://github.com/rkendev/claude-tools-roundtrip-playground) (Artifact B — native `tools=` round-trip)
@@ -39,7 +39,7 @@ The "Anti-patterns observed" column counts the bullet points in the `## Anti-pat
 
 ### What's universal
 
-Three patterns hold across all 13 servers. **None ship the canonical CCA-F D2 envelope** — no MCP in the audit emits a flat `errorCategory` + `isRetryable` + `message` shape from a tool. **All 13 read auth and configuration from environment variables (or CLI flags) at process launch**, not on first tool call — even the multi-tenant designs do their token reading at startup. And **stdio remains the default transport everywhere except `cloudflare-workers-observability`** (the lone remote-only server); the four servers that support remote/HTTP transports all keep stdio as a co-equal entrypoint, threading the same tool factory through both.
+Three patterns hold across all 13 servers. **None ship a canonical flat error envelope** — no MCP in the audit emits a flat `errorCategory` + `isRetryable` + `message` shape from a tool. **All 13 read auth and configuration from environment variables (or CLI flags) at process launch**, not on first tool call — even the multi-tenant designs do their token reading at startup. And **stdio remains the default transport everywhere except `cloudflare-workers-observability`** (the lone remote-only server); the four servers that support remote/HTTP transports all keep stdio as a co-equal entrypoint, threading the same tool factory through both.
 
 ### What's contested
 
